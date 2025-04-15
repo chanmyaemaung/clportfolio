@@ -10,7 +10,7 @@
     @inertiaHead
 </head>
 
-<body class="antialiased">
+<body class="antialiased bg-white dark:bg-gray-900">
     @inertia
 </body>
 

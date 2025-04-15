@@ -7,7 +7,7 @@ export default function Layout({ children, title }: { children: React.ReactNode;
         <>
             <Head title={title} />
             <Header />
-            <main>{children}</main>
+            <main className="pb-16 pt-24">{children}</main>
             <Footer />
         </>
     );
