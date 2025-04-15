@@ -1,5 +1,6 @@
 import '../css/app.css';
 
+import { LanguageProvider, MobileMenuProvider, ThemeProvider } from '@/contexts';
 import Layout from '@/layouts/app.layout';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
@@ -19,6 +20,14 @@ createInertiaApp({
     setup({ el, App, props }) {
         const root = createRoot(el);
 
-        root.render(<App {...props} />);
+        root.render(
+            <ThemeProvider>
+                <LanguageProvider>
+                    <MobileMenuProvider>
+                        <App {...props} />
+                    </MobileMenuProvider>
+                </LanguageProvider>
+            </ThemeProvider>,
+        );
     },
 });
