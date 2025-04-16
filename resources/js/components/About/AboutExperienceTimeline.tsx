@@ -6,13 +6,13 @@ export const AboutExperienceTimeline = () => {
                 {/* <!-- Senior Developer Role --> */}
                 <div className="experience-item">
                     <div className="mb-4 flex items-center">
-                        <span className="text-primary-600 dark:text-primary-400 text-sm font-semibold tracking-wider">2023 - PRESENT</span>
+                        <span className="text-sm font-semibold tracking-wider text-primary-600 dark:text-primary-400">2023 - PRESENT</span>
                         <div className="ml-4 flex-grow border-t border-gray-200 dark:border-gray-700"></div>
                     </div>
 
-                    <div className="hover:border-primary-500/50 dark:hover:border-primary-500/50 rounded-2xl border border-gray-200/50 bg-white p-6 backdrop-blur-xl transition-colors duration-300 sm:p-8 dark:border-gray-700/50 dark:bg-gray-800/50">
+                    <div className="rounded-2xl border border-gray-200/50 bg-white p-6 backdrop-blur-xl transition-colors duration-300 hover:border-primary-500/50 dark:border-gray-700/50 dark:bg-gray-800/50 dark:hover:border-primary-500/50 sm:p-8">
                         <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">Senior Full Stack Developer</h3>
-                        <h4 className="text-primary-600 dark:text-primary-400 mb-4 font-medium">TechCorp Solutions</h4>
+                        <h4 className="mb-4 font-medium text-primary-600 dark:text-primary-400">TechCorp Solutions</h4>
                         <p className="text-gray-600 dark:text-gray-400">
                             Leading a team of developers in building enterprise-level applications. Implemented microservices architecture that
                             improved system scalability by 40%. Mentored junior developers and established coding standards.
@@ -39,13 +39,13 @@ export const AboutExperienceTimeline = () => {
                 {/* <!-- Mid-level Developer Role --> */}
                 <div className="experience-item">
                     <div className="mb-4 flex items-center">
-                        <span className="text-primary-600 dark:text-primary-400 text-sm font-semibold tracking-wider">2020 - 2023</span>
+                        <span className="text-sm font-semibold tracking-wider text-primary-600 dark:text-primary-400">2020 - 2023</span>
                         <div className="ml-4 flex-grow border-t border-gray-200 dark:border-gray-700"></div>
                     </div>
 
-                    <div className="hover:border-primary-500/50 dark:hover:border-primary-500/50 rounded-2xl border border-gray-200/50 bg-white p-6 backdrop-blur-xl transition-colors duration-300 sm:p-8 dark:border-gray-700/50 dark:bg-gray-800/50">
+                    <div className="rounded-2xl border border-gray-200/50 bg-white p-6 backdrop-blur-xl transition-colors duration-300 hover:border-primary-500/50 dark:border-gray-700/50 dark:bg-gray-800/50 dark:hover:border-primary-500/50 sm:p-8">
                         <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">Full Stack Developer</h3>
-                        <h4 className="text-primary-600 dark:text-primary-400 mb-4 font-medium">Digital Innovators Inc</h4>
+                        <h4 className="mb-4 font-medium text-primary-600 dark:text-primary-400">Digital Innovators Inc</h4>
                         <p className="text-gray-600 dark:text-gray-400">
                             Developed and maintained multiple client projects using modern JavaScript frameworks. Reduced application load time by 60%
                             through optimization techniques. Implemented automated testing that caught 95% of bugs before production.
@@ -72,13 +72,13 @@ export const AboutExperienceTimeline = () => {
                 {/* <!-- Junior Developer Role --> */}
                 <div className="experience-item">
                     <div className="mb-4 flex items-center">
-                        <span className="text-primary-600 dark:text-primary-400 text-sm font-semibold tracking-wider">2018 - 2020</span>
+                        <span className="text-sm font-semibold tracking-wider text-primary-600 dark:text-primary-400">2018 - 2020</span>
                         <div className="ml-4 flex-grow border-t border-gray-200 dark:border-gray-700"></div>
                     </div>
 
-                    <div className="hover:border-primary-500/50 dark:hover:border-primary-500/50 rounded-2xl border border-gray-200/50 bg-white p-6 backdrop-blur-xl transition-colors duration-300 sm:p-8 dark:border-gray-700/50 dark:bg-gray-800/50">
+                    <div className="rounded-2xl border border-gray-200/50 bg-white p-6 backdrop-blur-xl transition-colors duration-300 hover:border-primary-500/50 dark:border-gray-700/50 dark:bg-gray-800/50 dark:hover:border-primary-500/50 sm:p-8">
                         <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">Junior Web Developer</h3>
-                        <h4 className="text-primary-600 dark:text-primary-400 mb-4 font-medium">WebTech Solutions</h4>
+                        <h4 className="mb-4 font-medium text-primary-600 dark:text-primary-400">WebTech Solutions</h4>
                         <p className="text-gray-600 dark:text-gray-400">
                             Started as a junior developer working on frontend development. Collaborated with the design team to implement responsive
                             websites. Participated in code reviews and improved coding skills.

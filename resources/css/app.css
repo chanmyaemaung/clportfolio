@@ -531,8 +531,11 @@
     .scroll-reveal-section {
         @apply translate-y-8 opacity-0;
         transition:
-            transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-            opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            transform 0.5s cubic-bezier(0.16, 0.77, 0.2, 0.99),
+            opacity 0.5s cubic-bezier(0.16, 0.77, 0.2, 0.99);
+        will-change: transform, opacity;
+        backface-visibility: hidden;
+        transform-style: preserve-3d;
     }
 
     .scroll-reveal-section.reveal {

@@ -4,4 +4,5 @@ export * from './ProjectCategoryFilter';
 export * from './ProjectGrid';
 export * from './ProjectHeader';
 export * from './ProjectLoadMoreButton';
-export * from './ProjectPreview';
+export * from './ProjectOverview';
+export * from './ProjectPagination';

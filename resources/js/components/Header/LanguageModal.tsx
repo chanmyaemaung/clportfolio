@@ -82,7 +82,7 @@ const LanguageModal = () => {
         return () => clearTimeout(timeoutId);
     }, [isModalOpen]);
 
-    const handleLanguageSelect = (lang: 'en' | 'mm' | 'jp') => {
+    const handleLanguageSelect = (lang: 'en' | 'mm') => {
         setLanguage(lang);
         closeModal();
     };
@@ -150,22 +150,6 @@ const LanguageModal = () => {
                                     >
                                         <span className="text-[15px] font-medium text-gray-900 dark:text-gray-100">မြန်မာ</span>
                                         {language === 'mm' && (
-                                            <svg className="h-5 w-5 text-primary-600 dark:text-primary-400" fill="currentColor" viewBox="0 0 20 20">
-                                                <path
-                                                    fillRule="evenodd"
-                                                    d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                                                    clipRule="evenodd"
-                                                />
-                                            </svg>
-                                        )}
-                                    </div>
-                                </button>
-                                <button className="w-full" onClick={() => handleLanguageSelect('jp')} aria-selected={language === 'jp'}>
-                                    <div
-                                        className={`flex items-center ${language === 'jp' ? 'justify-between' : ''} rounded-xl px-4 py-3 transition-colors duration-200 hover:bg-gray-100/50 dark:hover:bg-gray-700/50`}
-                                    >
-                                        <span className="text-[15px] font-medium text-gray-900 dark:text-gray-100">日本語</span>
-                                        {language === 'jp' && (
                                             <svg className="h-5 w-5 text-primary-600 dark:text-primary-400" fill="currentColor" viewBox="0 0 20 20">
                                                 <path
                                                     fillRule="evenodd"

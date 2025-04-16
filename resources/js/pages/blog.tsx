@@ -1,9 +1,9 @@
-import { BlogFilterButtons, BlogGrid, BlogHeader } from '@/components/Blog';
+import { BlogFilterButtons, BlogGrid, BlogHeader, BlogPagination } from '@/components/Blog';
 import { ScrollRevealSection } from '@/components/UI';
 import { useBlogFilter } from '@/hooks';
 import { Head } from '@inertiajs/react';
 
-const blogCategories = [
+export const blogCategories = [
     { id: 'all', label: 'All' },
     { id: 'tech', label: 'Technology' },
     { id: 'design', label: 'Design' },
@@ -11,7 +11,7 @@ const blogCategories = [
 ];
 
 // Example blogs data
-const blogs = [
+export const blogs = [
     {
         id: 1,
         title: 'Getting Started with React',
@@ -20,6 +20,7 @@ const blogs = [
         category: 'tech',
         date: 'Mar 15, 2023',
         slug: 'getting-started-with-react',
+        read: '5 min read',
     },
     {
         id: 2,
@@ -29,6 +30,7 @@ const blogs = [
         category: 'design',
         date: 'Apr 2, 2023',
         slug: 'ui-design-principles',
+        read: '10 min read',
     },
     {
         id: 3,
@@ -38,6 +40,7 @@ const blogs = [
         category: 'business',
         date: 'Apr 18, 2023',
         slug: 'startup-funding-guide',
+        read: '3 min read',
     },
     {
         id: 4,
@@ -47,6 +50,7 @@ const blogs = [
         category: 'tech',
         date: 'May 5, 2023',
         slug: 'introduction-to-typescript',
+        read: '15 min read',
     },
     {
         id: 5,
@@ -56,6 +60,7 @@ const blogs = [
         category: 'design',
         date: 'Jun 12, 2023',
         slug: 'color-theory-in-web-design',
+        read: '5 min read',
     },
     {
         id: 6,
@@ -65,6 +70,7 @@ const blogs = [
         category: 'business',
         date: 'Jul 1, 2023',
         slug: 'scaling-your-business',
+        read: '2 min read',
     },
 ];
 
@@ -73,7 +79,7 @@ export default function Blog() {
     const filteredBlogs = filterBlogs(blogs);
 
     return (
-        <>
+        <div className="pb-16 pt-24">
             <Head title="Blog" />
 
             <div className="container mx-auto px-4 py-12">
@@ -85,8 +91,10 @@ export default function Blog() {
 
                 <ScrollRevealSection>
                     <BlogGrid blogs={filteredBlogs} isAnimating={isAnimating} />
+
+                    <BlogPagination />
                 </ScrollRevealSection>
             </div>
-        </>
+        </div>
     );
 }

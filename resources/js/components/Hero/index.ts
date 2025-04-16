@@ -1,1 +1,2 @@
-export { Hero } from './Hero';
+export * from './Hero';
+export * from './HeroTechnologies';
