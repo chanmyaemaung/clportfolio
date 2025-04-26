@@ -15,7 +15,7 @@ export const Navbar = () => {
                 <div className="mx-auto max-w-7xl px-4 sm:px-6">
                     <div className="flex h-16 items-center justify-between">
                         {/* <!-- Logo --> */}
-                        <Link href={route('homepage')} className="text-xl font-medium text-primary-600 dark:text-primary-400">
+                        <Link href={route('homepage')} className="text-primary-600 dark:text-primary-400 text-xl font-medium">
                             Chan Lay
                         </Link>
 
@@ -94,7 +94,7 @@ export const Navbar = () => {
 
                     {/* <!-- Mobile Menu --> */}
                     <div className={`mobile-menu ${isOpen ? 'active' : 'hidden'}`} style={{ display: isOpen ? 'block' : 'none' }}>
-                        <div className="space-y-1 px-2 pb-3 pt-2">
+                        <div className="space-y-1 px-2 pt-2 pb-3">
                             <Link href={route('project')} className="mobile-link">
                                 Projects
                             </Link>

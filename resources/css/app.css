@@ -1,6 +1,15 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+@config '../../tailwind.config.ts';
+
+@layer base {
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentcolor);
+    }
+}
 
 @layer base {
     html {
@@ -20,98 +29,6 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-
-    /*
-    * Navbar Styles
-    * -------------
-    * Styles for the main navigation bar including blur effects and transitions
-    */
-    .nav-blur {
-        @apply fixed top-0 z-50 w-full border-b border-gray-200/20 transition-all duration-300 dark:border-gray-700/20;
-        background: transparent;
-    }
-
-    .nav-blur.sticky {
-        @apply border-b border-gray-200/30 bg-white/80 dark:border-gray-700/30 dark:bg-gray-900/80;
-        backdrop-filter: saturate(180%) blur(20px);
-        -webkit-backdrop-filter: saturate(180%) blur(20px);
-    }
-
-    /* Navigation Links & Buttons */
-    .nav-link {
-        @apply px-3 py-2 text-[15px] font-medium text-gray-600 transition-colors duration-200 hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400;
-    }
-
-    .nav-icon-btn {
-        @apply rounded-md p-2 text-gray-600 transition-colors duration-200 hover:bg-gray-100/50 dark:text-gray-300 dark:hover:bg-gray-800/50;
-    }
-
-    /*
-    * Mobile Menu Styles
-    * -----------------
-    * Hamburger button and mobile menu animations
-    */
-    .hamburger-lines {
-        @apply relative flex h-5 w-5 flex-col items-center justify-center;
-    }
-
-    .hamburger-line {
-        @apply absolute h-[1.5px] bg-gray-600 transition-all duration-300 ease-in-out dark:bg-gray-300;
-        width: 20px;
-    }
-
-    /* Hamburger Lines Positioning */
-    .top-line {
-        transform: translateY(-6px);
-    }
-
-    .middle-line {
-        transform: translateY(0);
-    }
-
-    .bottom-line {
-        transform: translateY(6px);
-    }
-
-    /* Hamburger Active State (X shape) */
-    .hamburger-active .top-line {
-        transform: translateY(0) rotate(45deg);
-    }
-
-    .hamburger-active .middle-line {
-        opacity: 0;
-    }
-
-    .hamburger-active .bottom-line {
-        transform: translateY(0) rotate(-45deg);
-    }
-
-    /* Mobile Menu Styles */
-    .mobile-menu {
-        @apply fixed left-0 right-0 z-40 transform border-t border-gray-200/20 bg-white/80 backdrop-blur-xl transition-all duration-300 ease-in-out dark:border-gray-700/20 dark:bg-gray-900/80;
-        top: 4rem;
-        /* Height of your navbar */
-    }
-
-    .mobile-menu.active {
-        @apply translate-y-0 opacity-100;
-    }
-
-    .mobile-menu:not(.active) {
-        @apply -translate-y-2 opacity-0;
-    }
-
-    /* Mobile Link Styles */
-    .mobile-link {
-        @apply block rounded-xl px-3 py-2 text-[15px] font-medium text-gray-600 transition-colors duration-200 hover:bg-gray-100/50 dark:text-gray-300 dark:hover:bg-gray-800/50;
-    }
-
-    /* Ensure navbar stays on top */
-    .nav-blur {
-        @apply z-50;
-        /* Higher than mobile menu */
-    }
-
     /*
     * Modal Styles
     * ------------
@@ -122,539 +39,610 @@
         will-change: opacity;
     }
 
-    #langModal.active {
-        @apply opacity-100;
-    }
-
     #langModal:not(.active) {
         @apply pointer-events-none opacity-0;
     }
+}
 
+@utility nav-blur {
+    /*
+  * Navbar Styles
+  * -------------
+  * Styles for the main navigation bar including blur effects and transitions
+  */
+    @apply fixed top-0 z-50 w-full border-b border-gray-200/20 transition-all duration-300 dark:border-gray-700/20;
+    background: transparent;
+    &.sticky {
+        @apply border-b border-gray-200/30 bg-white/80 dark:border-gray-700/30 dark:bg-gray-900/80;
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+    }
+    /* Ensure navbar stays on top */
+    @apply z-50;
+    /* Higher than mobile menu */
+}
+
+@utility sticky {
+    &.nav-blur {
+        @apply border-b border-gray-200/30 bg-white/80 dark:border-gray-700/30 dark:bg-gray-900/80;
+        backdrop-filter: saturate(180%) blur(20px);
+        -webkit-backdrop-filter: saturate(180%) blur(20px);
+    }
+}
+
+@utility nav-link {
+    /* Navigation Links & Buttons */
+    @apply hover:text-primary-600 dark:hover:text-primary-400 px-3 py-2 text-[15px] font-medium text-gray-600 transition-colors duration-200 dark:text-gray-300;
+}
+
+@utility nav-icon-btn {
+    @apply rounded-md p-2 text-gray-600 transition-colors duration-200 hover:bg-gray-100/50 dark:text-gray-300 dark:hover:bg-gray-800/50;
+}
+
+@utility hamburger-lines {
+    /*
+  * Mobile Menu Styles
+  * -----------------
+  * Hamburger button and mobile menu animations
+  */
+    @apply relative flex h-5 w-5 flex-col items-center justify-center;
+}
+
+@utility hamburger-line {
+    @apply absolute h-[1.5px] bg-gray-600 transition-all duration-300 ease-in-out dark:bg-gray-300;
+    width: 20px;
+}
+
+@utility top-line {
+    /* Hamburger Lines Positioning */
+    transform: translateY(-6px);
+    /* Hamburger Active State (X shape) */
+    .hamburger-active & {
+        transform: translateY(0) rotate(45deg);
+    }
+}
+
+@utility middle-line {
+    transform: translateY(0);
+    .hamburger-active & {
+        opacity: 0;
+    }
+}
+
+@utility bottom-line {
+    transform: translateY(6px);
+    .hamburger-active & {
+        transform: translateY(0) rotate(-45deg);
+    }
+}
+
+@utility hamburger-active {
+    /* Hamburger Active State (X shape) */
+    & .top-line {
+        transform: translateY(0) rotate(45deg);
+    }
+    & .middle-line {
+        opacity: 0;
+    }
+    & .bottom-line {
+        transform: translateY(0) rotate(-45deg);
+    }
+}
+
+@utility mobile-menu {
+    /* Mobile Menu Styles */
+    @apply fixed right-0 left-0 z-40 transform border-t border-gray-200/20 bg-white/80 backdrop-blur-xl transition-all duration-300 ease-in-out dark:border-gray-700/20 dark:bg-gray-900/80;
+    top: 4rem;
+    /* Height of your navbar */
+    &.active {
+        @apply translate-y-0 opacity-100;
+    }
+    &:not(.active) {
+        @apply -translate-y-2 opacity-0;
+    }
+}
+
+@utility active {
+    &.mobile-menu {
+        @apply translate-y-0 opacity-100;
+    }
+    &#langModal {
+        @apply opacity-100;
+    }
+    &#langModal .modal-content {
+        @apply translate-y-0 scale-100 opacity-100;
+    }
+    &#langModal .fixed.inset-0 {
+        @apply cursor-pointer hover:bg-black/30 dark:hover:bg-black/50;
+    }
+    &.filter-btn {
+        @apply bg-primary-600 hover:bg-primary-700 dark:bg-primary-500 dark:hover:bg-primary-600 text-white dark:text-white;
+    }
+    &.filter-btn {
+        @apply bg-gray-900 text-white hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100;
+    }
+    &.filter-btn {
+        @apply bg-primary-600 hover:bg-primary-700 dark:hover:bg-primary-500 text-white;
+    }
+}
+
+@utility mobile-link {
+    /* Mobile Link Styles */
+    @apply block rounded-xl px-3 py-2 text-[15px] font-medium text-gray-600 transition-colors duration-200 hover:bg-gray-100/50 dark:text-gray-300 dark:hover:bg-gray-800/50;
+}
+
+@utility modal-content {
     /* Modal Content Animation */
-    #langModal .modal-content {
+    #langModal & {
         @apply transform transition-all duration-200 ease-out;
         will-change: transform, opacity;
         -webkit-backface-visibility: hidden;
         backface-visibility: hidden;
     }
-
-    #langModal.active .modal-content {
+    #langModal.active & {
         @apply translate-y-0 scale-100 opacity-100;
     }
-
-    #langModal:not(.active) .modal-content {
+    #langModal:not(.active) & {
         @apply translate-y-4 scale-95 opacity-0;
     }
-
-    /* Modal backdrop hover effect */
-    #langModal .fixed.inset-0 {
-        @apply transition-opacity duration-150;
-        will-change: opacity;
-    }
-
-    #langModal.active .fixed.inset-0 {
-        @apply cursor-pointer hover:bg-black/30 dark:hover:bg-black/50;
-    }
-
     /* Modal content hover effect */
-    #langModal .modal-content {
+    #langModal & {
         @apply cursor-default bg-white shadow-xl dark:bg-gray-800;
         backdrop-filter: blur(0);
         -webkit-backdrop-filter: blur(0);
     }
+}
 
+@utility fixed {
+    /* Modal backdrop hover effect */
+    #langModal &.inset-0 {
+        @apply transition-opacity duration-150;
+        will-change: opacity;
+    }
+    #langModal.active &.inset-0 {
+        @apply cursor-pointer hover:bg-black/30 dark:hover:bg-black/50;
+    }
+}
+
+@utility inset-0 {
+    /* Modal backdrop hover effect */
+    #langModal &.fixed {
+        @apply transition-opacity duration-150;
+        will-change: opacity;
+    }
+    #langModal.active &.fixed {
+        @apply cursor-pointer hover:bg-black/30 dark:hover:bg-black/50;
+    }
+}
+
+@utility hero-blob {
     /* Hero Blob Styles */
-    .hero-blob {
-        @apply relative aspect-square;
-        width: 400px;
-        /* Adjust size as needed */
-    }
-
-    .blob-content {
-        @apply h-full w-full overflow-hidden;
-        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-        animation: blob 25s infinite;
-    }
-
-    .blob-content img {
-        @apply h-full w-full object-cover;
-        transform: scale(1.1);
-        /* Prevent edge gaps during animation */
-    }
-
-    @keyframes blob {
-        0%,
-        100% {
-            border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
-        }
-
-        33% {
-            border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
-        }
-
-        66% {
-            border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
-        }
-    }
-
+    @apply relative aspect-square;
+    width: 400px;
+    /* Adjust size as needed */
     /* Float animation */
-    .hero-blob {
-        animation: float 8s ease-in-out infinite;
-    }
-
-    @keyframes float {
-        0%,
-        100% {
-            transform: translateY(0);
-        }
-
-        50% {
-            transform: translateY(-10px);
-        }
-    }
-
-    /* Responsive adjustments */
+    animation: float 8s ease-in-out infinite;
     @media (max-width: 1024px) {
-        .hero-blob {
-            @apply mx-auto w-72;
-            /* Smaller on mobile but centered */
-        }
+        @apply mx-auto w-72;
+        /* Smaller on mobile but centered */
     }
-
-    /* Update your hero section container */
-    .container {
-        @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+    @media (width >= theme(--breakpoint-lg)) {
+        margin-right: -2rem;
+        /* Pull image closer to text */
     }
-
-    /* Adjust grid gap */
-    .hero-section > .container > div {
-        @apply flex flex-col items-center gap-8 lg:grid lg:grid-cols-2 lg:gap-4;
-    }
-
-    /* Optional: Add this if you want the image closer to the text */
-    @screen lg {
-        .hero-blob {
-            margin-right: -2rem;
-            /* Pull image closer to text */
-        }
-    }
-
-    /* Disable animations if user prefers reduced motion */
     @media (prefers-reduced-motion: reduce) {
-        .hero-blob {
-            animation: none;
-        }
-
-        .hero-blob clipPath path {
+        animation: none;
+        & clipPath path {
             animation: none;
         }
     }
-
-    /* High contrast mode support */
     @media (forced-colors: active) {
-        .hero-blob img {
+        & img {
             @apply grayscale-0;
             border: 2px solid CanvasText;
         }
     }
+}
 
+@utility blob-content {
+    @apply h-full w-full overflow-hidden;
+    border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    animation: blob 25s infinite;
+    & img {
+        @apply h-full w-full object-cover;
+        transform: scale(1.1);
+        /* Prevent edge gaps during animation */
+    }
+}
+
+@utility container {
+    /* Responsive adjustments */
+    /* Update your hero section container */
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+    /* Adjust grid gap */
+    .hero-section > & > div {
+        @apply flex flex-col items-center gap-8 lg:grid lg:grid-cols-2 lg:gap-4;
+    }
+}
+
+@utility hero-section {
+    /* Adjust grid gap */
+    & > .container > div {
+        @apply flex flex-col items-center gap-8 lg:grid lg:grid-cols-2 lg:gap-4;
+    }
+}
+
+@utility hero-blob-container {
+    /* Optional: Add this if you want the image closer to the text */
+    /* Disable animations if user prefers reduced motion */
+    /* High contrast mode support */
     /* More specific hero blob container styles */
-    .hero-blob-container {
-        @apply relative overflow-hidden;
-        /* Ensure the blob doesn't overflow */
-    }
+    @apply relative overflow-hidden;
+    /* Ensure the blob doesn't overflow */
+}
 
-    @keyframes float {
-        0%,
-        100% {
-            transform: translateY(0);
-        }
-
-        50% {
-            transform: translateY(-15px);
-        }
-    }
-
+@utility animate-fade-in {
     /* Add fade-in animation for text elements */
-    .animate-fade-in {
-        animation: fadeIn 1s ease-out forwards;
-    }
+    animation: fadeIn 1s ease-out forwards;
+}
 
-    @keyframes fadeIn {
-        0% {
-            opacity: 0;
-            transform: translateY(20px);
-        }
-
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
+@utility wave-emoji {
     /* Animate the wave emoji */
-    .wave-emoji {
-        display: inline-block;
-        animation: wave 2.5s infinite;
-        transform-origin: 70% 70%;
-        /* Pivot point for the wave */
-    }
+    display: inline-block;
+    animation: wave 2.5s infinite;
+    transform-origin: 70% 70%;
+    /* Pivot point for the wave */
+}
 
-    @keyframes wave {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        10% {
-            transform: rotate(14deg);
-        }
-
-        20% {
-            transform: rotate(-8deg);
-        }
-
-        30% {
-            transform: rotate(14deg);
-        }
-
-        40% {
-            transform: rotate(-4deg);
-        }
-
-        50% {
-            transform: rotate(10deg);
-        }
-
-        60% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(0deg);
-        }
-    }
-
+@utility tech-card {
     /* Technology Cards */
-    .tech-card {
-        @apply flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-[15px] font-medium text-gray-700 transition-colors duration-200 hover:bg-gray-200 dark:bg-gray-800/50 dark:text-gray-300 dark:hover:bg-gray-800;
-    }
-
-    /* Smooth Scroll Behavior */
-    .smooth-scroll {
-        scroll-behavior: smooth;
-    }
-
-    /* Technology Section Styles */
-    .tech-group {
-        @apply flex flex-col gap-1.5 sm:gap-2;
-    }
-
-    .tech-label {
-        @apply mb-1.5 text-xs font-medium text-gray-500 dark:text-gray-400 sm:mb-2 sm:text-sm;
-    }
-
-    .tech-card {
-        @apply flex items-center gap-1.5 whitespace-nowrap rounded-lg border border-gray-100 bg-gray-50 px-2.5 py-1.5 text-xs font-medium text-gray-700 transition-all duration-200 hover:bg-gray-100 dark:border-gray-700/50 dark:bg-gray-800/50 dark:text-gray-300 dark:hover:bg-gray-700/50 sm:gap-2 sm:rounded-xl sm:px-4 sm:py-2.5 sm:text-sm;
-    }
-
-    .tech-icon {
-        @apply h-4 w-4 object-contain sm:h-5 sm:w-5;
-    }
-
-    .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-        -webkit-overflow-scrolling: touch;
-    }
-
-    .scrollbar-hide::-webkit-scrollbar {
-        display: none;
-    }
-
-    /* Scrollbar hiding with maintained functionality */
-    .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
-
-    .scrollbar-hide::-webkit-scrollbar {
-        display: none;
-    }
-
+    @apply flex items-center gap-2 rounded-full bg-gray-100 px-4 py-2 text-[15px] font-medium text-gray-700 transition-colors duration-200 hover:bg-gray-200 dark:bg-gray-800/50 dark:text-gray-300 dark:hover:bg-gray-800;
+    @apply flex items-center gap-1.5 rounded-lg border border-gray-100 bg-gray-50 px-2.5 py-1.5 text-xs font-medium whitespace-nowrap text-gray-700 transition-all duration-200 hover:bg-gray-100 sm:gap-2 sm:rounded-xl sm:px-4 sm:py-2.5 sm:text-sm dark:border-gray-700/50 dark:bg-gray-800/50 dark:text-gray-300 dark:hover:bg-gray-700/50;
     /* Card hover effects */
-    .tech-card:hover {
-        @apply scale-[1.02] transform shadow-sm;
+    &:hover {
+        @apply scale-[1.02] transform shadow-xs;
     }
-
-    .tech-card:hover .tech-icon {
+    &:hover .tech-icon {
         @apply scale-110 transform;
     }
+}
 
+@utility smooth-scroll {
+    /* Smooth Scroll Behavior */
+    scroll-behavior: smooth;
     /* Smooth scroll behavior */
-    .smooth-scroll {
-        scroll-behavior: smooth;
-        -webkit-overflow-scrolling: touch;
-    }
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
 
-    /* Project Card Styles */
-    .project-card {
-        @apply relative rounded-3xl border border-gray-200/50 bg-white p-4 transition-all duration-300 hover:border-gray-300 hover:shadow-lg hover:shadow-gray-100/50 dark:border-gray-700/50 dark:bg-gray-900 dark:hover:border-gray-600 dark:hover:shadow-gray-900/50;
-    }
+@utility tech-group {
+    /* Technology Section Styles */
+    @apply flex flex-col gap-1.5 sm:gap-2;
+}
 
-    /* Project Tags */
-    .project-tag {
-        @apply rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-600 transition-colors duration-200 dark:bg-gray-800 dark:text-gray-400;
-    }
+@utility tech-label {
+    @apply mb-1.5 text-xs font-medium text-gray-500 sm:mb-2 sm:text-sm dark:text-gray-400;
+}
 
-    /* Project Link Button */
-    .project-link-btn {
-        @apply inline-flex items-center font-medium text-primary-600 transition-colors duration-200 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300;
+@utility tech-icon {
+    @apply h-4 w-4 object-contain sm:h-5 sm:w-5;
+    .tech-card:hover & {
+        @apply scale-110 transform;
     }
+}
 
-    /* Image Loading Animation */
-    .image-loading {
-        @apply animate-pulse bg-gray-200 dark:bg-gray-700;
-    }
-
-    /* Filter Buttons */
-    .filter-btn {
-        @apply rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-600 transition-all duration-200 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700;
-    }
-
-    .filter-btn.active {
-        @apply bg-primary-600 text-white hover:bg-primary-700 dark:bg-primary-500 dark:text-white dark:hover:bg-primary-600;
-    }
-
-    /* Load More Button */
-    .load-more-btn {
-        @apply inline-flex items-center rounded-full bg-gray-900 px-6 py-3 text-base font-medium text-white transition-all duration-200 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100;
-    }
-
-    /* Project Card Animation */
-    .project-card {
-        @apply translate-y-4 opacity-0;
-        animation: cardAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    }
-
-    .project-card:nth-child(2) {
-        animation-delay: 0.1s;
-    }
-
-    .project-card:nth-child(3) {
-        animation-delay: 0.2s;
-    }
-
-    @keyframes cardAppear {
-        to {
-            @apply translate-y-0 opacity-100;
-        }
-    }
-
-    /* Project Card Hover Effects */
-    .project-card:hover .project-card-image {
-        @apply scale-105;
-    }
-
-    .project-card:hover .project-card-overlay {
-        @apply opacity-100;
-    }
-
-    /* Project Card Image */
-    .project-card-image {
-        @apply transform transition-transform duration-500;
-    }
-
-    /* Project Card Overlay */
-    .project-card-overlay {
-        @apply absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300;
-    }
-
-    /* Accessibility Focus Styles */
-    .project-card a:focus,
-    .filter-btn:focus,
-    .load-more-btn:focus {
-        @apply outline-none ring-2 ring-primary-500 ring-offset-2 dark:ring-offset-gray-900;
-    }
-
-    /* Loading State */
-    .project-card.loading {
-        @apply animate-pulse;
-    }
-
-    .project-card.loading .project-card-image {
-        @apply bg-gray-200 dark:bg-gray-700;
-    }
-
-    /* Empty State */
-    .projects-empty {
-        @apply py-12 text-center text-gray-500 dark:text-gray-400;
-    }
-
-    /* Grid Layout Improvements */
-    .projects-grid {
-        @apply grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3;
-    }
-
-    /* Responsive Adjustments */
-    @screen sm {
-        .project-card {
-            @apply p-5;
-        }
-    }
-
-    @screen lg {
-        .project-card {
-            @apply p-6;
-        }
-    }
-
-    /* Filter Button Styles */
-    .filter-btn {
-        @apply flex-none rounded-full bg-gray-100 px-4 py-2 text-[15px] font-medium text-gray-600 transition-all duration-200 hover:bg-gray-200 dark:bg-gray-800/50 dark:text-gray-300 dark:hover:bg-gray-700/50;
-    }
-
-    .filter-btn.active {
-        @apply bg-gray-900 text-white hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100;
-    }
-
-    /* Hide scrollbar but keep functionality */
-    .scrollbar-hide {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
-
-    .scrollbar-hide::-webkit-scrollbar {
+@utility scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    &::-webkit-scrollbar {
         display: none;
     }
-
-    /* Section Reveal Animation */
-    .scroll-reveal-section {
-        @apply translate-y-8 opacity-0;
-        transition:
-            transform 0.5s cubic-bezier(0.16, 0.77, 0.2, 0.99),
-            opacity 0.5s cubic-bezier(0.16, 0.77, 0.2, 0.99);
-        will-change: transform, opacity;
-        backface-visibility: hidden;
-        transform-style: preserve-3d;
+    /* Scrollbar hiding with maintained functionality */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
     }
+    /* Hide scrollbar but keep functionality */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
 
-    .scroll-reveal-section.reveal {
+@utility project-card {
+    /* Project Card Styles */
+    @apply relative rounded-3xl border border-gray-200/50 bg-white p-4 transition-all duration-300 hover:border-gray-300 hover:shadow-lg hover:shadow-gray-100/50 dark:border-gray-700/50 dark:bg-gray-900 dark:hover:border-gray-600 dark:hover:shadow-gray-900/50;
+    /* Project Card Animation */
+    @apply translate-y-4 opacity-0;
+    animation: cardAppear 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    &:nth-child(2) {
+        animation-delay: 0.1s;
+    }
+    &:nth-child(3) {
+        animation-delay: 0.2s;
+    }
+    /* Project Card Hover Effects */
+    &:hover .project-card-image {
+        @apply scale-105;
+    }
+    &:hover .project-card-overlay {
+        @apply opacity-100;
+    }
+    /* Accessibility Focus Styles */
+    & a:focus {
+        @apply ring-primary-500 ring-2 ring-offset-2 outline-hidden dark:ring-offset-gray-900;
+    }
+    /* Loading State */
+    &.loading {
+        @apply animate-pulse;
+    }
+    &.loading .project-card-image {
+        @apply bg-gray-200 dark:bg-gray-700;
+    }
+    @media (width >= theme(--breakpoint-sm)) {
+        @apply p-5;
+    }
+    @media (width >= theme(--breakpoint-lg)) {
+        @apply p-6;
+    }
+}
+
+@utility project-tag {
+    /* Project Tags */
+    @apply rounded-full bg-gray-100 px-3 py-1 text-sm font-medium text-gray-600 transition-colors duration-200 dark:bg-gray-800 dark:text-gray-400;
+}
+
+@utility project-link-btn {
+    /* Project Link Button */
+    @apply text-primary-600 hover:text-primary-700 dark:text-primary-400 dark:hover:text-primary-300 inline-flex items-center font-medium transition-colors duration-200;
+}
+
+@utility image-loading {
+    /* Image Loading Animation */
+    @apply animate-pulse bg-gray-200 dark:bg-gray-700;
+}
+
+@utility filter-btn {
+    /* Filter Button Styles (continued) */
+    @apply flex-none rounded-full bg-gray-100 px-4 py-2 text-[15px] font-medium text-gray-600 transition-all duration-200 hover:bg-gray-200 dark:bg-gray-800/50 dark:text-gray-300 dark:hover:bg-gray-700/50;
+    &.active {
+        @apply bg-gray-900 text-white hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100;
+    }
+    @apply rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-600 transition-all duration-200 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700;
+    &.active {
+        @apply bg-primary-600 hover:bg-primary-700 dark:hover:bg-primary-500 text-white;
+    }
+}
+
+@utility load-more-btn {
+    /* Load More Button */
+    @apply focus:ring-primary-500 inline-flex items-center rounded-full bg-gray-900 px-6 py-3 text-base font-medium text-white transition-all duration-200 hover:bg-gray-800 focus:ring-2 focus:ring-offset-2 focus:outline-hidden dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100;
+    &:focus {
+        @apply ring-primary-500 ring-2 ring-offset-2 outline-hidden dark:ring-offset-gray-900;
+    }
+}
+
+@utility project-card-image {
+    /* Project Card Image */
+    @apply transform transition-transform duration-500;
+    .project-card:hover & {
+        @apply scale-105;
+    }
+    .project-card.loading & {
+        @apply bg-gray-200 dark:bg-gray-700;
+    }
+}
+
+@utility project-card-overlay {
+    /* Project Card Overlay */
+    @apply absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 transition-opacity duration-300;
+    .project-card:hover & {
+        @apply opacity-100;
+    }
+}
+
+@utility loading {
+    /* Loading State */
+    &.project-card {
+        @apply animate-pulse;
+    }
+    &.project-card .project-card-image {
+        @apply bg-gray-200 dark:bg-gray-700;
+    }
+}
+
+@utility projects-empty {
+    /* Empty State */
+    @apply py-12 text-center text-gray-500 dark:text-gray-400;
+}
+
+@utility projects-grid {
+    /* Grid Layout Improvements */
+    @apply grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3;
+}
+
+@utility scroll-reveal-section {
+    /* Section Reveal Animation */
+    @apply translate-y-8 opacity-0;
+    transition:
+        transform 0.5s cubic-bezier(0.16, 0.77, 0.2, 0.99),
+        opacity 0.5s cubic-bezier(0.16, 0.77, 0.2, 0.99);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    &.reveal {
         @apply translate-y-0 opacity-100;
     }
+}
 
+@utility reveal {
+    &.scroll-reveal-section {
+        @apply translate-y-0 opacity-100;
+    }
+}
+
+@utility footer-section {
     /* Footer Styles */
-    .footer-section {
-        @apply relative border-t border-gray-200/50 bg-white dark:border-gray-800/50 dark:bg-gray-900;
-    }
+    @apply relative border-t border-gray-200/50 bg-white dark:border-gray-800/50 dark:bg-gray-900;
+}
 
-    .footer-heading {
-        @apply text-sm font-semibold uppercase tracking-wider text-gray-900 dark:text-white;
-    }
+@utility footer-heading {
+    @apply text-sm font-semibold tracking-wider text-gray-900 uppercase dark:text-white;
+}
 
-    .footer-link {
-        @apply inline-block text-[15px] text-gray-600 transition-colors duration-200 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400;
-    }
+@utility footer-link {
+    @apply hover:text-primary-600 dark:hover:text-primary-400 inline-block text-[15px] text-gray-600 transition-colors duration-200 dark:text-gray-400;
+}
 
-    .footer-social-link {
-        @apply rounded-full p-2 text-gray-600 transition-colors duration-200 hover:bg-gray-100/50 hover:text-primary-600 dark:text-gray-400 dark:hover:bg-gray-800/50 dark:hover:text-primary-400;
-    }
+@utility footer-social-link {
+    @apply hover:text-primary-600 dark:hover:text-primary-400 rounded-full p-2 text-gray-600 transition-colors duration-200 hover:bg-gray-100/50 dark:text-gray-400 dark:hover:bg-gray-800/50;
+}
 
-    .footer-legal-link {
-        @apply text-[15px] text-gray-500 transition-colors duration-200 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white;
-    }
+@utility footer-legal-link {
+    @apply hover:text-primary-600 dark:hover:text-primary-400 text-[15px] text-gray-500 transition-colors duration-200 dark:text-gray-400;
+}
 
+@utility author-image {
     /* Author Image Grayscale Effect */
-    .author-image {
-        @apply h-8 w-8 rounded-full object-cover grayscale transition-all duration-500 hover:grayscale-0 sm:h-10 sm:w-10;
-    }
+    @apply h-8 w-8 rounded-full object-cover grayscale transition-all duration-500 hover:grayscale-0 sm:h-10 sm:w-10;
+}
 
+@utility rich-text-content {
     /* Rich Text Content Wrapper */
-    .rich-text-content {
-        @apply space-y-6;
-    }
-
+    @apply space-y-6;
     /* Headings */
-    .rich-text-content h1 {
-        @apply text-3xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-4xl;
+    & h1 {
+        @apply text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl dark:text-white;
     }
-
-    .rich-text-content h2 {
-        @apply text-2xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-3xl;
+    & h2 {
+        @apply text-2xl font-semibold tracking-tight text-gray-900 sm:text-3xl dark:text-white;
     }
-
-    .rich-text-content h3 {
-        @apply text-xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-2xl;
+    & h3 {
+        @apply text-xl font-semibold tracking-tight text-gray-900 sm:text-2xl dark:text-white;
     }
-
     /* Paragraphs */
-    .rich-text-content p {
+    & p {
         @apply text-lg leading-relaxed text-gray-600 dark:text-gray-400;
     }
-
     /* Lead paragraph */
-    .rich-text-content p:first-of-type {
+    & p:first-of-type {
         @apply text-lg font-medium text-gray-900 dark:text-gray-300;
     }
-
     /* Lists */
-    .rich-text-content ul {
+    & ul {
         @apply list-inside list-disc space-y-2 text-gray-600 dark:text-gray-400;
     }
-
-    .rich-text-content ol {
+    & ol {
         @apply list-inside list-decimal space-y-2 text-gray-600 dark:text-gray-400;
     }
-
     /* Code blocks */
-    .rich-text-content pre {
+    & pre {
         @apply my-8 overflow-hidden rounded-xl border border-gray-200/20 bg-gray-900 dark:border-gray-700/20 dark:bg-gray-800/50;
     }
-
-    .rich-text-content pre code {
+    & pre code {
         @apply block overflow-x-auto p-4 text-sm text-gray-300;
     }
-
     /* Inline code */
-    .rich-text-content :not(pre) > code {
+    & :not(pre) > code {
         @apply rounded-md bg-gray-100 px-1.5 py-0.5 text-sm text-gray-900 dark:bg-gray-800 dark:text-gray-300;
     }
-
     /* Links */
-    .rich-text-content a {
-        @apply text-primary-600 hover:underline dark:text-primary-400;
+    & a {
+        @apply text-primary-600 dark:text-primary-400 hover:underline;
     }
-
     /* Images */
-    .rich-text-content img {
+    & img {
         @apply my-8 rounded-2xl;
     }
+}
 
-    .filter-btn {
-        @apply rounded-full bg-gray-100 px-4 py-2 text-sm font-medium text-gray-600 transition-all duration-200 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:hover:bg-gray-700;
-    }
-
-    .filter-btn.active {
-        @apply bg-primary-600 text-white hover:bg-primary-700 dark:hover:bg-primary-500;
-    }
-
-    .filter-btn-count {
-        @apply inline-flex h-6 min-w-[1.5rem] items-center justify-center rounded-full bg-white/10 px-1.5 text-xs font-medium dark:bg-black/20;
-    }
-
+@utility filter-btn-count {
+    @apply inline-flex h-6 min-w-[1.5rem] items-center justify-center rounded-full bg-white/10 px-1.5 text-xs font-medium dark:bg-black/20;
+}
+@utility experience-item {
     /* Experience Timeline Styles */
-    .experience-item {
-        @apply relative;
-    }
-
-    .experience-item:hover {
+    @apply relative;
+    &:hover {
         .experience-content {
             @apply -translate-y-1 transform transition-transform duration-200;
         }
     }
+}
 
+@utility backdrop-blur-xl {
     /* Glassmorphism effect for cards */
-    .backdrop-blur-xl {
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+/* Keyframes definitions - moved outside of any selectors to fix the @apply issue */
+@keyframes blob {
+    0%,
+    100% {
+        border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+    }
+    33% {
+        border-radius: 70% 30% 46% 54% / 30% 29% 71% 70%;
+    }
+    66% {
+        border-radius: 100% 60% 60% 100% / 100% 100% 60% 60%;
+    }
+}
+
+@keyframes float {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+    10% {
+        transform: rotate(14deg);
+    }
+    20% {
+        transform: rotate(-8deg);
+    }
+    30% {
+        transform: rotate(14deg);
+    }
+    40% {
+        transform: rotate(-4deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+    60% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes cardAppear {
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
 }

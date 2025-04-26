@@ -5,7 +5,7 @@ export const HeroTechnologies = () => {
             <div className="mt-8 sm:mt-12">
                 <div className="mb-6">
                     <div className="mb-3 flex items-center gap-3 sm:mb-2">
-                        <svg className="h-5 w-5 flex-shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="h-5 w-5 shrink-0 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
@@ -26,7 +26,7 @@ export const HeroTechnologies = () => {
                 {/* <!-- Scrollable Container --> */}
                 <div className="relative -mx-4 sm:mx-0">
                     {/* <!-- Left Shadow --> */}
-                    <div className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-8 bg-gradient-to-r from-white to-transparent dark:from-gray-900 sm:w-12"></div>
+                    <div className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-8 bg-linear-to-r from-white to-transparent dark:from-gray-900 sm:w-12"></div>
 
                     {/* <!-- Scrollable Content --> */}
                     <div className="scrollbar-hide flex gap-3 overflow-x-auto px-4 pb-2">
@@ -110,7 +110,7 @@ export const HeroTechnologies = () => {
                     </div>
 
                     {/* <!-- Right Shadow --> */}
-                    <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-8 bg-gradient-to-l from-white to-transparent dark:from-gray-900 sm:w-12"></div>
+                    <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-8 bg-linear-to-l from-white to-transparent dark:from-gray-900 sm:w-12"></div>
                 </div>
             </div>
         </>

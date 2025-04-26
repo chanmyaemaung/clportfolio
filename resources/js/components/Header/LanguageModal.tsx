@@ -101,7 +101,7 @@ const LanguageModal = () => {
             aria-labelledby="language-modal-title"
         >
             {/* Backdrop */}
-            <div className="fixed inset-0 bg-black/30 backdrop-blur-sm dark:bg-black/50"></div>
+            <div className="fixed inset-0 bg-black/30 backdrop-blur-xs dark:bg-black/50"></div>
 
             {/* Modal Container */}
             <div className="fixed inset-0 overflow-y-auto">

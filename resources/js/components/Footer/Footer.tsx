@@ -140,7 +140,7 @@ export const Footer = () => {
                             </div>
                             <button
                                 type="submit"
-                                className="w-full rounded-xl bg-gray-900 px-4 py-2.5 font-medium text-white transition-colors duration-200 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 dark:focus:ring-white"
+                                className="w-full cursor-pointer rounded-xl bg-gray-900 px-4 py-2.5 font-medium text-white transition-colors duration-200 hover:bg-gray-800 focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 focus:outline-hidden dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 dark:focus:ring-white"
                             >
                                 Subscribe
                             </button>

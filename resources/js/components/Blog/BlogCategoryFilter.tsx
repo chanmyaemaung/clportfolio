@@ -6,10 +6,10 @@ export const BlogCategoryFilter = () => {
                 {/* <!-- Center Container --> */}
                 <div className="relative mx-auto max-w-4xl">
                     {/* <!-- Left Shadow --> */}
-                    <div className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-12 bg-gradient-to-r from-white to-transparent dark:from-gray-900"></div>
+                    <div className="pointer-events-none absolute bottom-0 left-0 top-0 z-10 w-12 bg-linear-to-r from-white to-transparent dark:from-gray-900"></div>
 
                     {/* <!-- Right Shadow --> */}
-                    <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-12 bg-gradient-to-l from-white to-transparent dark:from-gray-900"></div>
+                    <div className="pointer-events-none absolute bottom-0 right-0 top-0 z-10 w-12 bg-linear-to-l from-white to-transparent dark:from-gray-900"></div>
 
                     {/* <!-- Scrollable Filter Buttons --> */}
                     <div className="scrollbar-hide flex overflow-x-auto px-4 py-2">

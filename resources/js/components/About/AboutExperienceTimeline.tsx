@@ -7,7 +7,7 @@ export const AboutExperienceTimeline = () => {
                 <div className="experience-item">
                     <div className="mb-4 flex items-center">
                         <span className="text-sm font-semibold tracking-wider text-primary-600 dark:text-primary-400">2023 - PRESENT</span>
-                        <div className="ml-4 flex-grow border-t border-gray-200 dark:border-gray-700"></div>
+                        <div className="ml-4 grow border-t border-gray-200 dark:border-gray-700"></div>
                     </div>
 
                     <div className="rounded-2xl border border-gray-200/50 bg-white p-6 backdrop-blur-xl transition-colors duration-300 hover:border-primary-500/50 dark:border-gray-700/50 dark:bg-gray-800/50 dark:hover:border-primary-500/50 sm:p-8">
@@ -40,7 +40,7 @@ export const AboutExperienceTimeline = () => {
                 <div className="experience-item">
                     <div className="mb-4 flex items-center">
                         <span className="text-sm font-semibold tracking-wider text-primary-600 dark:text-primary-400">2020 - 2023</span>
-                        <div className="ml-4 flex-grow border-t border-gray-200 dark:border-gray-700"></div>
+                        <div className="ml-4 grow border-t border-gray-200 dark:border-gray-700"></div>
                     </div>
 
                     <div className="rounded-2xl border border-gray-200/50 bg-white p-6 backdrop-blur-xl transition-colors duration-300 hover:border-primary-500/50 dark:border-gray-700/50 dark:bg-gray-800/50 dark:hover:border-primary-500/50 sm:p-8">
@@ -73,7 +73,7 @@ export const AboutExperienceTimeline = () => {
                 <div className="experience-item">
                     <div className="mb-4 flex items-center">
                         <span className="text-sm font-semibold tracking-wider text-primary-600 dark:text-primary-400">2018 - 2020</span>
-                        <div className="ml-4 flex-grow border-t border-gray-200 dark:border-gray-700"></div>
+                        <div className="ml-4 grow border-t border-gray-200 dark:border-gray-700"></div>
                     </div>
 
                     <div className="rounded-2xl border border-gray-200/50 bg-white p-6 backdrop-blur-xl transition-colors duration-300 hover:border-primary-500/50 dark:border-gray-700/50 dark:bg-gray-800/50 dark:hover:border-primary-500/50 sm:p-8">

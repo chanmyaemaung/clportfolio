@@ -13,7 +13,7 @@ export const ContactForm = () => {
                             type="text"
                             id="name"
                             name="name"
-                            className="focus:border-primary-600 dark:focus:border-primary-400 w-full rounded-xl border border-transparent bg-gray-100 px-4 py-2.5 text-gray-900 placeholder-gray-500 transition-colors duration-200 focus:outline-none dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
+                            className="focus:border-primary-600 dark:focus:border-primary-400 w-full rounded-xl border border-transparent bg-gray-100 px-4 py-2.5 text-gray-900 placeholder-gray-500 transition-colors duration-200 focus:outline-hidden dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
                             placeholder="John Doe"
                             required
                         />
@@ -28,7 +28,7 @@ export const ContactForm = () => {
                             type="email"
                             id="email"
                             name="email"
-                            className="focus:border-primary-600 dark:focus:border-primary-400 w-full rounded-xl border border-transparent bg-gray-100 px-4 py-2.5 text-gray-900 placeholder-gray-500 transition-colors duration-200 focus:outline-none dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
+                            className="focus:border-primary-600 dark:focus:border-primary-400 w-full rounded-xl border border-transparent bg-gray-100 px-4 py-2.5 text-gray-900 placeholder-gray-500 transition-colors duration-200 focus:outline-hidden dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
                             placeholder="john@example.com"
                             required
                         />
@@ -43,7 +43,7 @@ export const ContactForm = () => {
                             id="message"
                             name="message"
                             rows={6}
-                            className="focus:border-primary-600 dark:focus:border-primary-400 w-full resize-none rounded-xl border border-transparent bg-gray-100 px-4 py-2.5 text-gray-900 placeholder-gray-500 transition-colors duration-200 focus:outline-none dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
+                            className="focus:border-primary-600 dark:focus:border-primary-400 w-full resize-none rounded-xl border border-transparent bg-gray-100 px-4 py-2.5 text-gray-900 placeholder-gray-500 transition-colors duration-200 focus:outline-hidden dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
                             placeholder="Tell me about your project..."
                             required
                         />
@@ -52,7 +52,7 @@ export const ContactForm = () => {
                     {/* <!-- Submit Button --> */}
                     <button
                         type="submit"
-                        className="bg-primary-600 hover:bg-primary-700 w-full rounded-xl px-6 py-3 font-medium text-white transition-colors duration-200"
+                        className="bg-primary-600 hover:bg-primary-700 w-full cursor-pointer rounded-xl px-6 py-3 font-medium text-white transition-colors duration-200"
                     >
                         Send Message
                     </button>

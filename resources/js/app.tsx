@@ -1,4 +1,4 @@
-import '../css/app.css';
+import '../css/output.css';
 
 import { LanguageProvider, MobileMenuProvider, ThemeProvider } from '@/contexts';
 import Layout from '@/layouts/app.layout';

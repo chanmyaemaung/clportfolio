@@ -3,7 +3,7 @@ import { HeroTechnologies } from './HeroTechnologies';
 
 export const Hero = () => {
     return (
-        <section className="scroll-reveal-section reveal relative flex min-h-[calc(100vh-4rem)] items-center">
+        <section className="scroll-reveal-section reveal relative flex min-h-[calc(100vh-4rem)] items-center py-12">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 {/* <!-- Grid container with mobile-first layout --> */}
                 <div className="flex flex-col items-center gap-12 lg:grid lg:grid-cols-2 lg:gap-20">
@@ -22,16 +22,16 @@ export const Hero = () => {
 
                     {/* <!-- Text Content - Second on mobile, First on desktop --> */}
                     <div className="order-2 max-w-full text-center lg:order-1 lg:max-w-xl lg:text-left">
-                        <p className="flex items-center justify-center gap-2 text-lg font-medium text-primary-600 dark:text-primary-400 lg:justify-start">
+                        <p className="text-primary-600 dark:text-primary-400 flex items-center justify-center gap-2 text-lg font-medium lg:justify-start">
                             Hi, I'm Chan Lay
                             <span className="wave-emoji text-2xl">👋</span>
                         </p>
 
-                        <h1 className="mt-4 text-3xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
+                        <h1 className="mt-4 text-3xl font-semibold tracking-tight text-gray-900 sm:text-4xl lg:text-5xl dark:text-white">
                             Building digital experiences with purpose and precision
                         </h1>
 
-                        <p className="mt-4 text-lg leading-relaxed text-gray-600 dark:text-gray-300 sm:mt-6 sm:text-xl">
+                        <p className="mt-4 text-lg leading-relaxed text-gray-600 sm:mt-6 sm:text-xl dark:text-gray-300">
                             Full-stack developer specializing in e-commerce solutions, crafting high-performance websites with WordPress, Shopify, and
                             modern JavaScript frameworks.
                         </p>
@@ -41,7 +41,7 @@ export const Hero = () => {
                             <Link
                                 preserveScroll
                                 href={route('contact')}
-                                className="inline-flex items-center rounded-full bg-gray-900 px-5 py-2.5 text-white transition-colors duration-200 hover:bg-gray-800 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100 sm:px-6 sm:py-3"
+                                className="inline-flex items-center rounded-full bg-gray-900 px-5 py-2.5 text-white transition-colors duration-200 hover:bg-gray-800 sm:px-6 sm:py-3 dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
                             >
                                 Let's work together
                                 <svg className="ml-2 h-4 w-4 sm:h-5 sm:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

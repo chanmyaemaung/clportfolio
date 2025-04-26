@@ -2,13 +2,28 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "build": "vite build",
-        "build:ssr": "vite build && vite build --ssr",
-        "dev": "vite --host",
+        "build": "vite build && npx @tailwindcss/cli -i resources/css/app.css -o resources/css/output.css --minify",
+        "build:ssr": "vite build && vite build --ssr && npx @tailwindcss/cli -i resources/css/app.css -o resources/css/output.css --minify",
+        "dev": "concurrently \"npx @tailwindcss/cli -i resources/css/app.css -o resources/css/output.css --watch\" \"vite --host\"",
         "format": "prettier --write resources/",
         "format:check": "prettier --check resources/",
         "lint": "eslint . --fix",
         "types": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@inertiajs/react": "^2.0.0",
+        "@types/react": "^19.0.3",
+        "@types/react-dom": "^19.0.2",
+        "@vitejs/plugin-react": "^4.3.4",
+        "clsx": "^2.1.1",
+        "concurrently": "^9.0.1",
+        "globals": "^15.14.0",
+        "laravel-vite-plugin": "^1.0",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "tailwindcss": "^4.1.4",
+        "typescript": "^5.7.2",
+        "vite": "^6.0"
     },
     "devDependencies": {
         "@eslint/js": "^9.19.0",
@@ -26,21 +41,6 @@
         "prettier-plugin-tailwindcss": "^0.6.11",
         "tailwindcss-animate": "^1.0.7",
         "typescript-eslint": "^8.23.0"
-    },
-    "dependencies": {
-        "@inertiajs/react": "^2.0.0",
-        "@types/react": "^19.0.3",
-        "@types/react-dom": "^19.0.2",
-        "@vitejs/plugin-react": "^4.3.4",
-        "clsx": "^2.1.1",
-        "concurrently": "^9.0.1",
-        "globals": "^15.14.0",
-        "laravel-vite-plugin": "^1.0",
-        "react": "^19.0.0",
-        "react-dom": "^19.0.0",
-        "tailwindcss": "^3.4.1",
-        "typescript": "^5.7.2",
-        "vite": "^6.0"
     },
     "optionalDependencies": {
         "@rollup/rollup-linux-x64-gnu": "4.9.5",
