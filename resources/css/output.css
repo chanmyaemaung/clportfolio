@@ -3670,6 +3670,12 @@
       grid-row: span 1 / span 1;
     }
   }
+  .checked\:ring-0 {
+    &:checked {
+      --tw-ring-shadow: var(--tw-ring-inset,) 0 0 0 calc(0px + var(--tw-ring-offset-width)) var(--tw-ring-color, currentcolor);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
   .hover\:rounded-t-md {
     &:hover {
       @media (hover: hover) {
@@ -3872,6 +3878,17 @@
       --tw-ring-color: #a855f7;
     }
   }
+  .focus\:ring-primary-600 {
+    &:focus {
+      --tw-ring-color: #9333ea;
+    }
+  }
+  .focus\:ring-offset-0 {
+    &:focus {
+      --tw-ring-offset-width: 0px;
+      --tw-ring-offset-shadow: var(--tw-ring-inset,) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+    }
+  }
   .focus\:ring-offset-2 {
     &:focus {
       --tw-ring-offset-width: 2px;
@@ -3885,6 +3902,13 @@
       @media (forced-colors: active) {
         outline: 2px solid transparent;
         outline-offset: 2px;
+      }
+    }
+  }
+  .checked\:focus\:ring-primary-500\/50 {
+    &:checked {
+      &:focus {
+        --tw-ring-color: color-mix(in oklab, #a855f7 50%, transparent);
       }
     }
   }
@@ -3952,6 +3976,16 @@
       pointer-events: none;
     }
   }
+  .disabled\:bg-gray-50 {
+    &:disabled {
+      background-color: var(--color-gray-50);
+    }
+  }
+  .disabled\:text-gray-50 {
+    &:disabled {
+      color: var(--color-gray-50);
+    }
+  }
   .disabled\:text-gray-500 {
     &:disabled {
       color: var(--color-gray-500);
@@ -3971,6 +4005,20 @@
     &:disabled {
       &::placeholder {
         -webkit-text-fill-color: oklch(70.7% 0.022 261.325);
+      }
+    }
+  }
+  .disabled\:checked\:bg-gray-400 {
+    &:disabled {
+      &:checked {
+        background-color: var(--color-gray-400);
+      }
+    }
+  }
+  .disabled\:checked\:text-gray-400 {
+    &:disabled {
+      &:checked {
+        color: var(--color-gray-400);
       }
     }
   }
@@ -4975,6 +5023,11 @@
       color: #c084fc;
     }
   }
+  .dark\:text-primary-500 {
+    &:is(.dark *) {
+      color: #a855f7;
+    }
+  }
   .dark\:text-white {
     &:is(.dark *) {
       color: var(--color-white);
@@ -5032,6 +5085,13 @@
     &:is(.dark *) {
       &::placeholder {
         color: var(--color-gray-500);
+      }
+    }
+  }
+  .dark\:checked\:bg-primary-500 {
+    &:is(.dark *) {
+      &:checked {
+        background-color: #a855f7;
       }
     }
   }
@@ -5211,10 +5271,26 @@
       }
     }
   }
+  .dark\:focus\:ring-primary-500 {
+    &:is(.dark *) {
+      &:focus {
+        --tw-ring-color: #a855f7;
+      }
+    }
+  }
   .dark\:focus\:ring-white {
     &:is(.dark *) {
       &:focus {
         --tw-ring-color: var(--color-white);
+      }
+    }
+  }
+  .dark\:checked\:focus\:ring-primary-400\/50 {
+    &:is(.dark *) {
+      &:checked {
+        &:focus {
+          --tw-ring-color: color-mix(in oklab, #c084fc 50%, transparent);
+        }
       }
     }
   }
@@ -5256,10 +5332,27 @@
       }
     }
   }
+  .dark\:disabled\:bg-transparent {
+    &:is(.dark *) {
+      &:disabled {
+        background-color: transparent;
+      }
+    }
+  }
   .dark\:disabled\:text-gray-400 {
     &:is(.dark *) {
       &:disabled {
         color: var(--color-gray-400);
+      }
+    }
+  }
+  .dark\:disabled\:ring-white\/10 {
+    &:is(.dark *) {
+      &:disabled {
+        --tw-ring-color: color-mix(in srgb, #fff 10%, transparent);
+        @supports (color: color-mix(in lab, red, red)) {
+          --tw-ring-color: color-mix(in oklab, var(--color-white) 10%, transparent);
+        }
       }
     }
   }
@@ -5275,6 +5368,15 @@
       &:disabled {
         &::placeholder {
           -webkit-text-fill-color: oklch(55.1% 0.027 264.364);
+        }
+      }
+    }
+  }
+  .dark\:disabled\:checked\:bg-gray-600 {
+    &:is(.dark *) {
+      &:disabled {
+        &:checked {
+          background-color: var(--color-gray-600);
         }
       }
     }
