@@ -13,9 +13,9 @@ export const FilterButtons = ({ currentFilter, onFilterChange, categories }: Fil
             {categories.map((category) => (
                 <button
                     key={category.id}
+                    onClick={() => onFilterChange(category.id)}
                     className={`filter-btn ${currentFilter === category.id ? 'active' : ''}`}
                     data-filter={category.id}
-                    onClick={() => onFilterChange(category.id)}
                 >
                     {category.label}
                 </button>

@@ -1,17 +1,18 @@
 import { ProjectCard } from './ProjectCard';
 import { ProjectPagination } from './ProjectPagination';
 
-type Project = {
+export type ProjectType = {
     id: string | number;
     title: string;
     description: string;
     image: string;
     category: string;
     link?: string;
+    technologies?: string[];
 };
 
 type ProjectGridProps = {
-    projects: Project[];
+    projects: ProjectType[];
 };
 
 export const ProjectGrid = ({ projects }: ProjectGridProps) => {

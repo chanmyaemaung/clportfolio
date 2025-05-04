@@ -11,6 +11,7 @@ export const projects = [
         image: 'https://picsum.photos/seed/project1/800/600',
         category: 'web',
         link: 'https://example.com/project1',
+        technologies: ['React', 'Node.js'],
     },
     {
         id: 2,
@@ -19,6 +20,7 @@ export const projects = [
         image: 'https://picsum.photos/seed/project2/800/600',
         category: 'mobile',
         link: 'https://example.com/project2',
+        technologies: ['Shopify', 'Liquid'],
     },
     {
         id: 3,
@@ -27,6 +29,7 @@ export const projects = [
         image: 'https://picsum.photos/seed/project3/800/600',
         category: 'desktop',
         link: 'https://example.com/project3',
+        technologies: ['Laravel', 'PHP'],
     },
     {
         id: 4,
@@ -35,6 +38,7 @@ export const projects = [
         image: 'https://picsum.photos/seed/project4/800/600',
         category: 'web',
         link: 'https://example.com/project4',
+        technologies: ['Node.js', 'Next.js'],
     },
     {
         id: 5,
@@ -43,6 +47,7 @@ export const projects = [
         image: 'https://picsum.photos/seed/project5/800/600',
         category: 'mobile',
         link: 'https://example.com/project5',
+        technologies: ['Flutter', 'Dart'],
     },
     {
         id: 6,
@@ -51,5 +56,6 @@ export const projects = [
         image: 'https://picsum.photos/seed/project6/800/600',
         category: 'desktop',
         link: 'https://example.com/project6',
+        technologies: ['Node.js', 'Express'],
     },
 ];
