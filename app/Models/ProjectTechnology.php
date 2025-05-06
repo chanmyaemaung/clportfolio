@@ -13,4 +13,9 @@ class ProjectTechnology extends Model
     {
         return $this->belongsToMany(Project::class, 'project_technologies_pivot')->withTimestamps();
     }
+
+    protected $casts = [
+        'created_at' => 'datetime:M d, Y H:i:s',
+        'updated_at' => 'datetime:M d, Y H:i:s',
+    ];
 }

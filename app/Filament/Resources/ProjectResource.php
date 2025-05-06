@@ -37,7 +37,7 @@ class ProjectResource extends Resource
                                 ->label(__('Title'))
                                 ->required()
                                 ->live(onBlur: true)
-                                ->unique()
+                                ->unique(Project::class, 'title', ignoreRecord: true)
                                 ->afterStateUpdated(function (string $operation, $state, Forms\Set $set) {
                                     if ($operation != 'create') {
                                         return;

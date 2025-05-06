@@ -35,7 +35,7 @@ class ProjectTechnologyResource extends Resource
                     Section::make(__('Project Technology'))
                         ->description(__("Please make sure to descript the technology I used for the projects I've ever built."))
                         ->schema([
-                            Forms\Components\TextInput::make('title')
+                            Forms\Components\TextInput::make('name')
                                 ->label(__('Technology Title'))
                                 ->placeholder(__('E.g., Angular, React, etc.'))
                                 ->autofocus()
@@ -50,6 +50,10 @@ class ProjectTechnologyResource extends Resource
         return $table
             ->columns([
                 TextColumn::make('name'),
+                Tables\Columns\TextColumn::make('created_at')
+                    ->label(__('Created At'))
+                    ->sortable()
+                    ->dateTime(),
             ])
             ->filters([
                 //
