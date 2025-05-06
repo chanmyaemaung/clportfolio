@@ -17,12 +17,12 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->text('excerpt')->comment('Show the summary of the project');
             $table->longText('description')->nullable();
-            $table->string('image_path')->nullable()->nullable();
-            $table->string('original_image_name')->nullable();
-            $table->string('link');
-            $table->enum('type', ['web', 'mobile', 'desktop']);
+            $table->string('image')->nullable();
+            $table->string('link')->nullable();
+            $table->enum('type', ['web', 'mobile', 'desktop'])->default('web');
             $table->boolean('is_featured')->default(false);
             $table->boolean('is_visible')->default(false);
+            $table->date('published_at')->nullable();
             $table->timestamps();
         });
     }

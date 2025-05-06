@@ -11,8 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('project_project_technology', function (Blueprint $table) {
-            $table->id()->from(1000);
+        Schema::create('project_technologies_pivot', function (Blueprint $table) {
             $table->foreignId('project_id')->constrained()->cascadeOnDelete();
             $table->foreignId('project_technology_id')->constrained()->cascadeOnDelete();
             $table->timestamps();

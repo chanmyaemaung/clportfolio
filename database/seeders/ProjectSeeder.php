@@ -25,12 +25,12 @@ class ProjectSeeder extends Seeder
                 'title' => $project['title'],
                 'excerpt' => $project['excerpt'],
                 'description' => $project['description'],
-                'image_path' => $project['image_path'],
-                'original_image_name' => $project['original_image_name'],
+                'image' => $project['image'],
                 'type' => $project['type'],
                 'link' => $project['link'],
                 'is_featured' => $project['is_featured'],
                 'is_visible' => $project['is_visible'],
+                'published_at' => $project['published_at'],
             ]);
 
             // Attach technologies to the project

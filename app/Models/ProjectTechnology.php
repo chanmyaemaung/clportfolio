@@ -11,6 +11,6 @@ class ProjectTechnology extends Model
 
     public function projects(): BelongsToMany
     {
-        return $this->belongsToMany(Project::class, 'project_project_technology');
+        return $this->belongsToMany(Project::class, 'project_technologies_pivot')->withTimestamps();
     }
 }
