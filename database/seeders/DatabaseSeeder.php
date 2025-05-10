@@ -27,6 +27,9 @@ class DatabaseSeeder extends Seeder
             ProjectTechnologySeeder::class,
             ProjectSeeder::class,
             JourneySeeder::class,
+            PostCategorySeeder::class,
+            PostTagSeeder::class,
+            PostSeeder::class,
         ]);
     }
 }
