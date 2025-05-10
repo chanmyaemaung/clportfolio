@@ -9,6 +9,7 @@ use App\Filament\Resources\ProjectResource\RelationManagers\TechnologiesRelation
 use App\Models\Project;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Notifications\Notification;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -23,7 +24,7 @@ class ProjectResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-code-bracket-square';
 
-    protected static ?string $navigationGroup = 'Project';
+    protected static ?string $navigationGroup = 'Portfolio';
 
     public static function form(Form $form): Form
     {
@@ -159,18 +160,38 @@ class ProjectResource extends Resource
                     ->getStateUsing(fn($record) => $record->technologies->pluck('name')->toArray()),
                 Tables\Columns\ToggleColumn::make('is_featured')
                     ->label(__('Featured'))
-                    ->afterStateUpdated(function (Project $record, bool $state) {
-                        // Run custom logic after the toggle is updated
+                    ->afterStateUpdated(function (Project $record, bool $state): void {
                         if ($state) {
-                            // For example, if a project is featured, you might want to unfeatured others
-                            Project::where('id', '!=', $record->id)->update(['is_featured' => false]);
+                            Notification::make()
+                                ->title(__("Project Highlighted"))
+                                ->body(__("'{$record->title}' is now featured and will be showcased prominently."))
+                                ->success()
+                                ->duration(2000)
+                                ->send();
+                        } else {
+                            Notification::make()
+                                ->title(__("Project Unfeatured"))
+                                ->body(__("'{$record->title}' is no longer featured."))
+                                ->info()
+                                ->duration(2000)
+                                ->send();
                         }
                     }),
                 Tables\Columns\ToggleColumn::make('is_visible')
                     ->label(__('Visible'))
-                    ->afterStateUpdated(function (Project $record, bool $state) {
+                    ->afterStateUpdated(function (Project $record, bool $state): void {
                         if ($state) {
-                            Project::where('id', '!=', $record->id)->update(['is_visible' => false]);
+                            Notification::make()
+                                ->title(__("Project Visible"))
+                                ->body(__("'{$record->title}' is now visible to visitors."))
+                                ->success()
+                                ->send();
+                        } else {
+                            Notification::make()
+                                ->title(__("Project Hidden"))
+                                ->body(__("'{$record->title}' has been hidden from view."))
+                                ->info()
+                                ->send();
                         }
                     }),
                 Tables\Columns\TextColumn::make('created_at')
@@ -193,7 +214,8 @@ class ProjectResource extends Resource
             ->actions([
                 Tables\Actions\ActionGroup::make([
                     Tables\Actions\EditAction::make(),
-                    Tables\Actions\DeleteAction::make(),
+                    Tables\Actions\DeleteAction::make()
+                        ->successNotificationTitle(fn(Project $record): string => 'Project ' . $record->title . ' was deleted successfully.'),
                 ]),
             ])
             ->bulkActions([

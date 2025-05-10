@@ -23,7 +23,7 @@ class ProjectTechnologyResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-cpu-chip';
 
-    protected static ?string $navigationGroup = 'Project';
+    protected static ?string $navigationGroup = 'Portfolio';
 
     protected static ?string $navigationLabel = 'Technologies';
 
@@ -60,7 +60,8 @@ class ProjectTechnologyResource extends Resource
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
-                Tables\Actions\DeleteAction::make(),
+                Tables\Actions\DeleteAction::make()
+                    ->successNotificationTitle(fn(ProjectTechnology $record): string => 'Project Technology ' . $record->title . ' was deleted successfully.'),
             ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([

@@ -1,0 +1,41 @@
+[
+    {
+        "id": 1000,
+        "title": "Shopify Theme Developer",
+        "company": "Sky High Visions (US)",
+        "from": "2023-01-01",
+        "to": null,
+        "excerpt": "Currently engaged as a full-time Shopify Theme Developer for a US-based company. Responsibilities include comprehensive theme development, covering both backend configurations and frontend user interface implementation to deliver tailored e-commerce solutions.",
+        "description": null,
+        "technologies_used": [
+            "Shopify",
+            "Liquid",
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "React",
+            "Node.js",
+            "Git"
+        ],
+        "is_visible": true
+    },
+    {
+        "id": 1001,
+        "title": "Frontend Developer",
+        "company": "Visible One (Singapore)",
+        "from": "2022-01-01",
+        "to": "2024-12-31",
+        "excerpt": "Worked as a Frontend Developer for a Singapore-based company, specializing in WordPress theme customization and the development of custom WordPress plugins. Delivered a wide array of frontend-focused projects, enhancing user experiences and site functionalities.",
+        "description": null,
+        "technologies_used": [
+            "WordPress",
+            "PHP",
+            "JavaScript",
+            "HTML",
+            "CSS",
+            "jQuery",
+            "Figma"
+        ],
+        "is_visible": true
+    }
+]
